@@ -1,0 +1,14 @@
+{
+  "name": "wine-book-printer",
+  "version": "0.0.1",
+  "description": "Print a table layout to PDF including site-numbers",
+  "main": "wine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bastian Gebhardt <buzz-t@buzz-t.eu>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^5.5.0"
+  }
+}
