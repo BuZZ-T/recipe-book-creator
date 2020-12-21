@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        iframe {
+            border: 0;
+            height: 745px;
+            position: relative;
+            width: 1100px;
+        }
+
+        .first {
+            top: 20px;
+        }
+
+        .last {
+            top: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <iframe class="first" scrolling="no" src="page.html"></iframe>
+    <iframe class="last" name="rotate" id="rot" scrolling="no" src="page.html"></iframe>
+</body>
+
+<script>
+
+window.onload = () => {
+    console.log('loaded');
+    const frameBody = frames[1].document.querySelector('body');
+    frameBody.style.transform = 'rotate(180deg)';
+    frameBody.style.position = 'relative';
+    frameBody.style.top = '-130px';
+
+    // !!! Don't change the formatting of those lines, they are replaced by the print.js script
+    const first = '179'
+    const second = '180'
+
+    const secondLast = '181'
+    const last = '182'
+    // !!!
+
+    frames[0].document.querySelector('.left.table').setAttribute('data-page-number', first)
+    frames[0].document.querySelector('.right.table').setAttribute('data-page-number', second)
+
+    frames[1].document.querySelector('.left.table').setAttribute('data-page-number', secondLast)
+    frames[1].document.querySelector('.right.table').setAttribute('data-page-number', last)
+}
+
+</script>
+
+</html>

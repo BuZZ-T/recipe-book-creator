@@ -1,14 +1,19 @@
 {
-  "name": "wine-book-printer",
+  "name": "recipe-book-creator",
   "version": "0.0.1",
   "description": "Print a table layout to PDF including site-numbers",
-  "main": "wine.js",
+  "main": "print.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "print": "node print.js",
+    "chromium": "chromium-browser --disable-web-security --user-data-dir=chrome-user page.html print.html",
+    "chrome": "google-chrome --disable-web-security --user-data-dir=chrome-user page.html print.html",
+    "unite": "pdfunite output-*.pdf output.pdf",
+    "clean": "rm *.pdf"
   },
   "author": "Bastian Gebhardt <buzz-t@buzz-t.eu>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^6.2.1",
     "puppeteer": "^5.5.0"
   }
 }

@@ -1,0 +1,192 @@
+@import "units.css";
+
+:root {
+    --normal-line-height: 60px;
+    --normal-font-size: 14px;
+
+    --table-height: 700px;
+
+    --alternative-line-height: 60px;
+    --alternative-font-size: 13px;
+    --alternative-margin: 3px;
+
+    --page-counter-size: 17px;
+    --page-counter-side-margin: -20px;
+    --page-counter-bottom-margin: -40px;
+
+    --hole-size: 5px;
+}
+
+html.rotate {
+    transform: rotate(180deg);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.left.table::before {
+    content: attr(data-page-number);
+    width: var(--page-counter-size);
+    height: var(--page-counter-size);
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    left: var(--page-counter-side-margin);
+    bottom: var(--page-counter-bottom-margin);
+}
+
+.right.table::after {
+    content: attr(data-page-number);
+    width: var(--page-counter-size);
+    height: var(--page-counter-size);
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    right: var(--page-counter-side-margin);
+    bottom: var(--page-counter-bottom-margin);
+}
+
+.table {
+    display: flex;
+    height: var(--table-height);
+    flex-direction: column;
+    position: relative;
+    width: 500px;
+}
+
+.line {
+    display: flex;
+    flex-grow: 0;
+    height: var(--normal-line-height);
+}
+
+.field {
+    border: 1px solid black;
+    flex: 1 0 0;
+    margin: 1px;
+    padding-left: 2px;
+    padding-top: 2px;
+    position: relative;
+}
+
+.field.fraction {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.field.fraction.half {
+    flex-basis: 50%;
+}
+
+.field.fraction.third {
+    flex-basis: 33%;
+}
+
+.field.fraction.quarter {
+    flex-basis: 25%;
+}
+
+.field.fraction.fifth {
+    flex-basis: 20%;
+}
+
+.field.fraction.sixth {
+    flex-basis: 16.7%;
+}
+
+.line.fill-height {
+    flex-grow: 1;
+}
+/* 
+.middle-line {
+    --additional-height: 76px;
+    --half-space: 30px;
+
+    display: flex;
+    flex-direction: column;
+    height: calc(2 * var(--additional-height) + var(--table-height));
+    justify-content: space-around;
+    margin-right: var(--half-space);
+    position: relative;
+    top: calc(-1 * var(--additional-height));
+    width: var(--half-space);
+} */
+
+.middle-line {
+    --additional-height: 76px;
+    --half-space: 30px;
+    display: flex;
+    flex-direction: column;
+    height: calc(2 * var(--additional-height) + var(--table-height));
+    justify-content: space-around;
+    position: relative;
+    top: calc(-1 * var(--additional-height));
+    width: var(--hole-size);
+}
+
+.stitch {
+    border: none;
+    height: 10px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.stitch::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: var(--hole-size);
+    width: var(--hole-size);
+    background-color: black;
+    top: 2px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.field>span {
+    font-size: 18px;
+    position: absolute;
+    left: 70px;
+    top: 16px;
+}
+
+.field>span span:not(:first-child) {
+    margin-left: 10px;
+}
+
+.field span+span::after {
+    content: none;
+}
+
+.field::before {
+    content: attr(data-label);
+    font-size: var(--normal-font-size);
+}
+
+.alternative .field:before {
+    background-color: white;
+    font-size: var(--alternative-font-size);
+    left: 5px;
+    line-height: 1px;
+    padding: 3px;
+    position: absolute;
+    top: -4px;
+}
+
+.alternative .line {
+    height: var(--alternative-line-height);
+    margin-left: calc(-1 * var(--alternative-margin));
+    margin-right: calc(-1 * var(--alternative-margin));
+}
+
+.alternative .field {
+    margin: var(--alternative-margin);
+}
+
+.alternative .field>span {
+    top: 14px;
+}

@@ -1,0 +1,32 @@
+.unit::after {
+    font-size: 18px;
+    position: absolute;
+    right: 7px;
+    top: 16px;
+}
+
+.unit.kg::after {
+    content: "kg";
+}
+
+.unit.ml::after {
+    content: "ml";
+}
+
+.unit.something::after {
+    content: "g/ml"
+}
+
+.unit.liter::after,
+.unit.l::after {
+    content: "L";
+}
+
+.unit.g::after,
+.unit.gramm::after {
+    content: "g";
+}
+
+.unit.custom::after {
+    content: attr(data-unit);
+}
