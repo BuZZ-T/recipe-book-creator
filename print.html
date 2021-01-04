@@ -17,7 +17,6 @@
             top: 25px;
         }
     </style>
-
 </head>
 
 <body>
@@ -35,18 +34,38 @@ window.onload = () => {
     frameBody.style.top = '-130px';
 
     // !!! Don't change the formatting of those lines, they are replaced by the print.js script
-    const first = '179'
-    const second = '180'
+    const first = '29'
+    const second = '30'
 
-    const secondLast = '181'
-    const last = '182'
+    const secondLast = '31'
+    const last = '32'
+
+    const lastPage = false
     // !!!
 
-    frames[0].document.querySelector('.left.table').setAttribute('data-page-number', first)
-    frames[0].document.querySelector('.right.table').setAttribute('data-page-number', second)
+    const upperLeftPage = frames[0].document.querySelector('.left.page')
+    const upperRightPage = frames[0].document.querySelector('.right.page')
+    const upperSeam = frames[0].document.querySelector('.seam')
 
-    frames[1].document.querySelector('.left.table').setAttribute('data-page-number', secondLast)
-    frames[1].document.querySelector('.right.table').setAttribute('data-page-number', last)
+    const lowerLeftPage = frames[1].document.querySelector('.left.page')
+    const lowerRightPage = frames[1].document.querySelector('.right.page')
+    const lowerSeam = frames[1].document.querySelector('.seam')
+
+    upperLeftPage.setAttribute('data-page-number', last)
+    upperRightPage.setAttribute('data-page-number', first)
+
+    lowerLeftPage.setAttribute('data-page-number', second)
+    lowerRightPage.setAttribute('data-page-number', secondLast)
+
+    if (first === '1') {
+        upperRightPage.classList.remove('visible')
+        upperSeam.classList.remove('visible')
+    }
+
+    if (lastPage) {
+        lowerLeftPage.classList.remove('visible')
+        lowerSeam.classList.remove('visible')
+    }
 }
 
 </script>
