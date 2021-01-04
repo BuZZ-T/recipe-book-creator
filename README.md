@@ -23,8 +23,8 @@ Edit the file `page.html`, this file can be viewed in any chrom(e/ium) browser. 
 
 Available parameters: 
 
-* `-papers-per-quire` describes, how many sheets of papers are in one quire (are folded together), defaults to 6
-* `--quires` describes how many quires on top of each other define the book, defaults to 8
+* `-papers-per-section` describes, how many sheets of papers are in one section (are folded together), defaults to 6
+* `--sections` describes how many sections on top of each other define the book. A section is a bunch of papers, which are folded together, defaults to 8
 
 Both parameters are used to calculate the correct page numbers on each page
 
@@ -33,7 +33,7 @@ Both parameters are used to calculate the correct page numbers on each page
 (add `--` before parameters to pass parameters to the script)
 
 ```bash
-npm run print -- --papers-per-quire=4 --quires=7
+npm run print -- --papers-per-section=4 --sections=7
 ```
 
 #### Merge all PDFs to one file using "pdfunite"
@@ -46,12 +46,12 @@ npm run print -- --papers-per-quire=4 --quires=7
 
 ## General classes
 
-| HTML Element | class | description | TODO
-|-|-|-|-
+| HTML Element | class | description
+|-|-|-
 | `<body>` | `alternative` | Using the alternate design (labels on the lines, not inside of the fields)
 | top level `<div>` | `page` | Declaring a page table
-| top level `<div>` | `middle-line` | Declaring the seam in the middle of the sheet | Change to "seam"?
-| `<div>`inside `middle-line` | `stitch` | Declaring a stitch marker on the seam, useful for sewing the quires together
+| top level `<div>` | `seam` | Declaring the seam in the middle of the sheet
+| `<div>`inside `seam` | `stitch` | Declaring a stitch marker on the seam, useful for sewing the sections together
 | `<div>` inside `table` | `line` | Declaring a new line of fields
 | `<div>` inside `line` | `field` | Declaring a new field with a label
 

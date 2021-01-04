@@ -27,7 +27,11 @@ body {
     column-gap: 30px;
 }
 
-.left.table::before {
+.page:not(.visible), .seam:not(.visible) {
+    visibility: hidden;
+}
+
+.left.page::before {
     content: attr(data-page-number);
     width: var(--page-counter-size);
     height: var(--page-counter-size);
@@ -38,7 +42,7 @@ body {
     bottom: var(--page-counter-bottom-margin);
 }
 
-.right.table::after {
+.right.page::after {
     content: attr(data-page-number);
     width: var(--page-counter-size);
     height: var(--page-counter-size);
@@ -49,7 +53,7 @@ body {
     bottom: var(--page-counter-bottom-margin);
 }
 
-.table {
+.page {
     display: flex;
     height: var(--table-height);
     flex-direction: column;
@@ -100,22 +104,8 @@ body {
 .line.fill-height {
     flex-grow: 1;
 }
-/* 
-.middle-line {
-    --additional-height: 76px;
-    --half-space: 30px;
 
-    display: flex;
-    flex-direction: column;
-    height: calc(2 * var(--additional-height) + var(--table-height));
-    justify-content: space-around;
-    margin-right: var(--half-space);
-    position: relative;
-    top: calc(-1 * var(--additional-height));
-    width: var(--half-space);
-} */
-
-.middle-line {
+.seam {
     --additional-height: 76px;
     --half-space: 30px;
     display: flex;
