@@ -5,8 +5,8 @@
   "main": "print.js",
   "scripts": {
     "print": "node print.js",
-    "chromium": "chromium-browser --disable-web-security --user-data-dir=chrome-user page.html print.html",
-    "chrome": "google-chrome --disable-web-security --user-data-dir=chrome-user page.html print.html",
+    "chromium": "chromium-browser --disable-web-security --user-data-dir=chrome-user page.html file://$(pwd)/print.html?first=5\\&second=6\\&secondLast=14\\&last=15\\&hasLastPage=false",
+    "chrome": "google-chrome --disable-web-security --user-data-dir=chrome-user page.html file://$(pwd)/print.html?first=5\\&second=6\\&secondLast=14\\&last=15\\&hasLastPage=false",
     "unite": "pdfunite output-*.pdf output.pdf",
     "clean": "rm *.pdf"
   },
