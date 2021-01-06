@@ -6,7 +6,7 @@ Currently, only DIN A4 sheets creating a DIN A5 book are supported.
 
 ## Configuration
 
-Edit the file `page.html`, this file can be viewed in any chrom(e/ium) browser. Also look at the file `print.html`. This file uses JavaScript to change the content of the `page.html` inside iframes. For that reason, a chrom(e/ium) with flag `--disable-web-security` is required. npm run-scripts `npm run chrome` and `npm run chromium` are available for that reason.
+Edit the file `page.html`, this file can be viewed in any chrom(e/ium) browser. Also look at the file `print.html`. This file uses Query Parameter to change the content of the `page.html` inside iframes via JavaScript. For that reason, a chrom(e/ium) with flag `--disable-web-security` is required. npm run-scripts `npm run chrome` and `npm run chromium` are available for that reason.
 
 ## Create PDF
 
