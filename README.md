@@ -79,6 +79,10 @@ If you want a field to have the size of a certain fraction of the line, add the 
 
 ```
 
+### Split
+
+Add a field with text area and amount area with class `split`. Works best with additional [`unit`](#units) class.
+
 ### Units
 
 To automatically add unit labels inside of fields, add the class `unit` plus the respective unit:
