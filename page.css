@@ -4,7 +4,7 @@
     --normal-line-height: 60px;
     --normal-font-size: 14px;
 
-    --table-height: 700px;
+    --page-height: 700px;
 
     --alternative-line-height: 60px;
     --alternative-font-size: 13px;
@@ -55,7 +55,7 @@ body {
 
 .page {
     display: flex;
-    height: var(--table-height);
+    height: var(--page-height);
     flex-direction: column;
     position: relative;
     width: 500px;
@@ -74,6 +74,14 @@ body {
     padding-left: 2px;
     padding-top: 2px;
     position: relative;
+}
+
+.field.split::after {
+    height: 100%;
+    border-left: 1px black dashed;
+    top: 0;
+    line-height: 52px;
+    padding-left: 45px;
 }
 
 .field.fraction {
@@ -107,10 +115,9 @@ body {
 
 .seam {
     --additional-height: 76px;
-    --half-space: 30px;
     display: flex;
     flex-direction: column;
-    height: calc(2 * var(--additional-height) + var(--table-height));
+    height: calc(2 * var(--additional-height) + var(--page-height));
     justify-content: space-around;
     position: relative;
     top: calc(-1 * var(--additional-height));
